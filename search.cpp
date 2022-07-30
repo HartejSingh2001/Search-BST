@@ -13,23 +13,15 @@ class Solution {
 public:
     TreeNode *temp=NULL;
     TreeNode* searchBST(TreeNode* root, int val) {
-        if(root==NULL)
-        {
-            return temp;
-        }
-        preorder(root,val);
-        return temp;
-    }
-    void preorder(TreeNode *root,int val)
-    {
         if(root!=NULL)
         {
             if(root->val==val)
             {
                 temp=root;
             }
-            preorder(root->left,val);
-            preorder(root->right,val);
+            searchBST(root->left,val);
+            searchBST(root->right,val);
         }
+        return temp;
     }
 };
